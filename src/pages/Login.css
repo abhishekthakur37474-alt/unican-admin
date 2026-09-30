@@ -1,0 +1,330 @@
+/* src/pages/Login.css */
+
+/* ============================================= */
+/* 1. FONTS                                       */
+/* ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* MDI font is loaded via @mdi/font NPM package (imported in main.jsx).
+   These glyph mappings define what character each icon class shows. */
+.mdi-eye-outline::before     { content: "\f06d0"; }
+.mdi-eye-off-outline::before { content: "\f06d1"; }
+.mdi-lock::before            { content: "\f033e"; }
+.mdi-heart::before           { content: "\f02d1"; }
+
+/* ============================================= */
+/* 2. LOGIN PAGE WRAPPER                          */
+/* ============================================= */
+.account-pages {
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8125rem;
+  color: #495057;
+  background-color: #f8f8fb;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  box-sizing: border-box;
+}
+
+.account-pages *,
+.account-pages *::before,
+.account-pages *::after {
+  box-sizing: border-box;
+}
+
+/* ============================================= */
+/* 3. GRID                                        */
+/* ============================================= */
+.account-pages .container {
+  width: 100%;
+  padding-right: 12px;
+  padding-left: 12px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px)  { .account-pages .container { max-width: 540px; } }
+@media (min-width: 768px)  { .account-pages .container { max-width: 720px; } }
+@media (min-width: 992px)  { .account-pages .container { max-width: 960px; } }
+@media (min-width: 1200px) { .account-pages .container { max-width: 1140px; } }
+
+.account-pages .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -12px;
+  margin-left: -12px;
+}
+
+.account-pages .row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.account-pages .justify-content-center { justify-content: center !important; }
+
+.account-pages .col-5  { flex: 0 0 auto; width: 41.66666667%; }
+.account-pages .col-7  { flex: 0 0 auto; width: 58.33333333%; }
+
+@media (min-width: 768px) {
+  .account-pages .col-md-8 { flex: 0 0 auto; width: 66.66666667%; }
+}
+@media (min-width: 992px) {
+  .account-pages .col-lg-6 { flex: 0 0 auto; width: 50%; }
+}
+@media (min-width: 1200px) {
+  .account-pages .col-xl-5 { flex: 0 0 auto; width: 41.66666667%; }
+}
+
+/* ============================================= */
+/* 4. UTILITIES                                   */
+/* ============================================= */
+.account-pages .my-5        { margin-top: 3rem !important; margin-bottom: 3rem !important; }
+.account-pages .pt-sm-5     { padding-top: 3rem !important; }
+.account-pages .mb-3        { margin-bottom: 1rem !important; }
+.account-pages .mt-3        { margin-top: 1rem !important; }
+.account-pages .mt-4        { margin-top: 1.5rem !important; }
+.account-pages .p-2         { padding: 0.5rem !important; }
+.account-pages .p-4         { padding: 1.5rem !important; }
+.account-pages .pt-0        { padding-top: 0 !important; }
+.account-pages .me-1        { margin-right: 0.25rem !important; }
+.account-pages .d-grid      { display: grid !important; }
+.account-pages .text-center { text-align: center !important; }
+.account-pages .text-muted  { color: #74788d !important; }
+.account-pages .text-primary{ color: #556ee6 !important; }
+.account-pages .text-danger { color: #f46a6a !important; }
+.account-pages .img-fluid   { max-width: 100%; height: auto; display: block; }
+.account-pages .align-self-end  { align-self: flex-end !important; }
+.account-pages .overflow-hidden { overflow: hidden !important; }
+
+/* ============================================= */
+/* 5. CARD                                        */
+/* ============================================= */
+.account-pages .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #ffffff;
+  background-clip: border-box;
+  border: 0 solid #eff2f7;
+  border-radius: 0.25rem;
+  margin-bottom: 24px;
+  box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+}
+
+.account-pages .card-body {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+.account-pages .bg-primary-subtle {
+  background-color: rgba(85, 110, 230, 0.25) !important;
+}
+
+.account-pages .bg-primary-subtle > .row {
+  align-items: flex-end;
+}
+
+/* ============================================= */
+/* 6. FORM CONTROLS                               */
+/* ============================================= */
+.account-pages .form-control {
+  display: block;
+  width: 100%;
+  padding: 0.47rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  appearance: none;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.account-pages .form-control:focus {
+  color: #495057;
+  background-color: #ffffff;
+  border-color: rgba(73, 80, 87, 0.2);
+  outline: 0;
+  box-shadow: none;
+}
+
+.account-pages .form-control::placeholder {
+  color: #74788d;
+  opacity: 1;
+}
+
+.account-pages .form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.account-pages .input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+
+.account-pages .input-group > .form-control {
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+}
+
+.account-pages .input-group > :not(:first-child):not(.dropdown-menu) {
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* ============================================= */
+/* 7. BUTTONS                                     */
+/* ============================================= */
+.account-pages .btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.47rem 0.75rem;
+  font-size: 0.8125rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+              border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.account-pages .btn-light {
+  color: #000;
+  background-color: #eff2f7;
+  border-color: #eff2f7;
+}
+
+.account-pages .btn-light:hover {
+  background-color: #cbced2;
+  border-color: #bfc2c6;
+}
+
+.account-pages .btn-primary {
+  color: #fff;
+  background-color: #556ee6;
+  border-color: #556ee6;
+}
+
+.account-pages .btn-primary:hover {
+  color: #fff;
+  background-color: #485ec4;
+  border-color: #4458b8;
+}
+
+.account-pages .waves-effect {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* ============================================= */
+/* 8. FORM CHECK                                  */
+/* ============================================= */
+.account-pages .form-check {
+  display: block;
+  min-height: 1.21875rem;
+  padding-left: 1.5em;
+  margin-bottom: 0.125rem;
+  position: relative;
+}
+
+.account-pages .form-check .form-check-input {
+  float: left;
+  margin-left: -1.5em;
+}
+
+.account-pages .form-check-input {
+  width: 1em;
+  height: 1em;
+  margin-top: 0.25em;
+  vertical-align: top;
+  appearance: none;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid #ced4da;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+.account-pages .form-check-input:checked {
+  background-color: #556ee6;
+  border-color: #556ee6;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+
+.account-pages .form-check-label {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+/* ============================================= */
+/* 9. PASSWORD GROUP + VALIDATION                 */
+/* ============================================= */
+.account-pages .auth-pass-inputgroup {
+  position: relative;
+}
+
+.account-pages .auth-pass-inputgroup .btn {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-pages .form-control.is-invalid {
+  border-color: #f46a6a !important;
+  padding-right: calc(1.5em + 0.94rem) !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23f46a6a'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23f46a6a' stroke='none'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right calc(0.375em + 0.235rem) center !important;
+  background-size: calc(0.75em + 0.47rem) calc(0.75em + 0.47rem) !important;
+}
+
+.account-pages .form-control.is-invalid:focus {
+  border-color: #f46a6a !important;
+  box-shadow: 0 0 0 0.15rem rgba(244, 106, 106, 0.25) !important;
+}
+
+.account-pages .input-group .form-control.is-invalid {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.account-pages .auth-pass-inputgroup .form-control.is-invalid {
+  background-position: right calc(2.5rem + 0.235rem) center !important;
+}
+
+.account-pages .invalid-feedback {
+  display: block !important;
+  width: 100% !important;
+  margin-top: 0.25rem !important;
+  font-size: 80% !important;
+  line-height: 1.2 !important;
+  color: #f46a6a !important;
+}

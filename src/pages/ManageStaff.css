@@ -1,0 +1,243 @@
+/* src/pages/ManageStaff.css */
+.manage-staff-container {
+    padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .staff-header-row {
+    margin-bottom: 20px;
+  }
+  
+  .page-heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: #212529;
+    margin: 0;
+  }
+  
+  .page-subheading {
+    font-size: 13px;
+    color: #878a99;
+    margin: 4px 0 0 0;
+  }
+  
+  .table-card {
+    background: #ffffff;
+    border: 1px solid #e9ebec;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .staff-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  
+  .staff-table thead th {
+    background: #f8f9fa;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #878a99;
+    letter-spacing: 0.3px;
+    padding: 10px 14px;
+    border-bottom: 1px solid #f1f3f6;
+    text-align: left;
+  }
+  
+  .staff-table tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #f4f5f7;
+    color: #495057;
+    vertical-align: middle;
+  }
+  
+  .staff-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #eef0f7;
+    color: #4b38b3;
+    font-size: 11px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+  }
+  
+  .pwd-badge {
+    background: #f3f3f9;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #e83e8c;
+  }
+  
+  /* Device ID styles */
+  .device-id-badge {
+    background: #eef0f7;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    color: #4b38b3;
+    font-weight: 600;
+    display: inline-block;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  
+  .device-unassigned-badge {
+    background: #f3f3f6;
+    color: #878a99;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    display: inline-block;
+  }
+  
+  .role-badge {
+    background: rgba(41, 156, 219, 0.12);
+    color: #299cdb;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: capitalize;
+  }
+  
+  .btn-action {
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+  }
+  
+  .btn-edit {
+    border-color: #4b38b3;
+    color: #4b38b3;
+    background: transparent;
+  }
+  
+  .btn-edit:hover {
+    background: #4b38b3;
+    color: #ffffff;
+  }
+  
+  .btn-delete {
+    border-color: #f06548;
+    color: #f06548;
+    background: transparent;
+  }
+  
+  .btn-delete:hover {
+    background: #f06548;
+    color: #ffffff;
+  }
+  
+  /* Modal styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  }
+  
+  .modal-dialog-custom {
+    background: #ffffff;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+  }
+  
+  .modal-header-custom {
+    padding: 14px 18px;
+    border-bottom: 1px solid #f1f3f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-header-custom h5 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .close-modal-btn {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .modal-body-custom {
+    padding: 18px;
+  }
+  
+  .modal-body-custom label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #495057;
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .modal-body-custom input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 13px;
+    outline: none;
+  }
+  
+  .modal-footer-custom {
+    padding: 12px 18px;
+    border-top: 1px solid #f1f3f6;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .btn-cancel {
+    background: #eef0f5;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .btn-save {
+    background: #4b38b3;
+    color: #ffffff;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+  }

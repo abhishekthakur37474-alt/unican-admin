@@ -1,0 +1,141 @@
+/* ============================================================
+   GLOBAL RESET & BASE TYPOGRAPHY
+   ============================================================ */
+
+   html,
+   body {
+     height: 100%;
+     width: 100%;
+     margin: 0;
+     padding: 0;
+     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+       Oxygen, Ubuntu, Cantarell, sans-serif;
+     background-color: #f3f3f9;
+     color: #495057;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+   }
+   
+   #root {
+     min-height: 100%;
+     width: 100%;
+   }
+   
+   a {
+     text-decoration: none;
+     color: inherit;
+   }
+   
+   ul,
+   ol {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+   }
+   
+   button {
+     cursor: pointer;
+   }
+   
+   /* ============================================================
+      🚨 BOXICONS — bx-*, bxs-*, bxl-*
+      Powers: bx-buildings, bx-bell, bx-menu, bx-layer, bx-map-pin
+      ============================================================ */
+   
+   i[class^="bx-"],
+   i[class*=" bx-"],
+   i[class^="bxs-"],
+   i[class*=" bxs-"],
+   i[class^="bxl-"],
+   i[class*=" bxl-"],
+   .bx,
+   .bxs,
+   .bxl {
+     font-family: 'boxicons' !important;
+     font-style: normal !important;
+     font-weight: normal !important;
+     font-variant: normal !important;
+     text-transform: none !important;
+     line-height: 1 !important;
+     display: inline-block !important;
+     speak: never;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+   }
+   
+   i[class^="bx-"]::before,
+   i[class*=" bx-"]::before,
+   i[class^="bxs-"]::before,
+   i[class*=" bxs-"]::before,
+   i[class^="bxl-"]::before,
+   i[class*=" bxl-"]::before,
+   .bx::before,
+   .bxs::before,
+   .bxl::before {
+     font-family: 'boxicons' !important;
+     font-style: normal !important;
+     font-weight: normal !important;
+     display: inline-block !important;
+     line-height: 1 !important;
+     speak: never;
+   }
+   
+   /* ============================================================
+      🚨 REMIX ICON — ri-*
+      Powers: ri-arrow-right-line, ri-close-line
+      ============================================================ */
+   
+   i[class^="ri-"],
+   i[class*=" ri-"],
+   .ri {
+     font-family: 'remixicon' !important;
+     font-style: normal !important;
+     font-weight: normal !important;
+     font-variant: normal !important;
+     text-transform: none !important;
+     line-height: 1 !important;
+     display: inline-block !important;
+     speak: never;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+   }
+   
+   i[class^="ri-"]::before,
+   i[class*=" ri-"]::before,
+   .ri::before {
+     font-family: 'remixicon' !important;
+     display: inline-block !important;
+     line-height: 1 !important;
+   }
+   
+   /* ============================================================
+      🚨 MATERIAL DESIGN ICONS — mdi-*
+      Powers: mdi-magnify, mdi-speedometer, mdi-logout, mdi-eye-outline
+      ============================================================ */
+   
+   i.mdi,
+   i[class^="mdi-"],
+   i[class*=" mdi-"],
+   .mdi,
+   .mdi-set {
+     font-family: "Material Design Icons" !important;
+     font-style: normal !important;
+     font-weight: normal !important;
+     font-variant: normal !important;
+     text-transform: none !important;
+     line-height: 1 !important;
+     display: inline-block !important;
+     speak: never;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+   }
+   
+   i.mdi::before,
+   i[class^="mdi-"]::before,
+   i[class*=" mdi-"]::before,
+   .mdi::before,
+   .mdi-set::before {
+     font-family: "Material Design Icons" !important;
+     display: inline-block !important;
+     line-height: 1 !important;
+   }

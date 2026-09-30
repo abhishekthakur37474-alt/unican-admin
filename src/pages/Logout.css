@@ -1,0 +1,198 @@
+/* ============================================================
+   LOGOUT PAGE — Velzon style
+   ============================================================ */
+
+   .logout-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f3f6f9 0%, #e9ebec 100%);
+    padding: 1.5rem;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* ---------- Card ---------- */
+  .logout-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(56, 65, 74, 0.12);
+    padding: 2.5rem 2rem;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    animation: logoutFade 0.3s ease;
+  }
+  
+  @keyframes logoutFade {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ---------- Icon ---------- */
+  .logout-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: rgba(240, 101, 72, 0.15);
+    color: #f06548;
+    margin-bottom: 1.25rem;
+  }
+  
+  .logout-icon i {
+    font-size: 34px;
+    line-height: 1;
+  }
+  
+  /* ---------- Text ---------- */
+  .logout-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #212529;
+    margin: 0 0 0.5rem;
+  }
+  
+  .logout-subtitle {
+    font-size: 14px;
+    color: #878a99;
+    margin: 0 0 1.5rem;
+    line-height: 1.5;
+  }
+  
+  /* ---------- User preview ---------- */
+  .logout-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #f3f6f9;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .logout-user .user-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4b38b3, #6559cc);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  
+  .logout-user .user-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .logout-user .user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #495057;
+    line-height: 1.3;
+  }
+  
+  .logout-user .user-role {
+    font-size: 12px;
+    color: #878a99;
+    line-height: 1.3;
+  }
+  
+  /* ---------- Actions ---------- */
+  .logout-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+  
+  .logout-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    line-height: 1.5;
+    flex: 1;
+  }
+  
+  .logout-actions .btn i {
+    font-size: 16px;
+  }
+  
+  /* Soft danger */
+  .btn-soft-danger {
+    background-color: rgba(240, 101, 72, 0.15);
+    color: #f06548;
+  }
+  
+  .btn-soft-danger:hover {
+    background-color: #f06548;
+    color: #fff;
+  }
+  
+  /* Soft secondary */
+  .btn-soft-secondary {
+    background-color: rgba(135, 138, 153, 0.15);
+    color: #878a99;
+  }
+  
+  .btn-soft-secondary:hover {
+    background-color: #878a99;
+    color: #fff;
+  }
+  
+  /* ---------- Footer ---------- */
+  .logout-footer {
+    font-size: 13px;
+    color: #878a99;
+    margin: 0;
+  }
+  
+  .logout-link {
+    color: #4b38b3;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  
+  .logout-link:hover {
+    color: #3577f1;
+    text-decoration: underline;
+  }
+  
+  /* ---------- Responsive ---------- */
+  @media (max-width: 575.98px) {
+    .logout-card {
+      padding: 2rem 1.25rem;
+    }
+  
+    .logout-actions {
+      flex-direction: column;
+    }
+  
+    .logout-actions .btn {
+      width: 100%;
+    }
+  }

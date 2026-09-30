@@ -1,0 +1,187 @@
+/* ============================================================
+   VELZON SYSTEM VARIABLES & CORE LAYOUT
+   ============================================================ */
+   :root {
+    --vz-header-bg: #ffffff;
+    --vz-header-border: #e9ebec;
+    --vz-header-item-color: #495057;
+    --vz-header-item-bg: rgba(75, 56, 179, 0.08);
+    --vz-header-item-sub-color: #878a99;
+    --vz-topbar-search-bg: #f3f3f9;
+    --vz-topbar-search-color: #495057;
+    --vz-topbar-user-bg: #f3f3f9;
+  
+    --vz-vertical-menu-width: 250px;
+    --vz-vertical-menu-bg: #151529;
+    --vz-vertical-menu-item-color: #a3a6b7;
+    --vz-vertical-menu-item-hover: #ffffff;
+    --vz-vertical-menu-item-active-bg: rgba(255, 255, 255, 0.12);
+    --vz-vertical-menu-title-color: #9b9eb1;
+  
+    --vz-body-bg: #f3f3f9;
+    --vz-border-color: #e9ebec;
+    --vz-dropdown-bg: #ffffff;
+    --vz-dropdown-link-color: #212529;
+    --vz-dropdown-link-hover-bg: #f3f6f9;
+  
+    --vz-primary: #4b38b3;
+    --vz-danger: #f06548;
+    --vz-success: #45cb85;
+    --vz-info: #299cdb;
+    --vz-warning: #ffbe0b;
+  
+    --vz-font-sans-serif: 'Inter', sans-serif;
+  }
+  
+  /* ============================================================
+     CORE LAYOUT ARCHITECTURE
+     ============================================================ */
+  .layout-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: var(--vz-body-bg);
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    min-height: 100vh;
+    margin-left: var(--vz-vertical-menu-width);
+    transition: margin-left 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  /* 70px Topbar Offset prevents ANY overlap with dashboard */
+  .page-content {
+    padding: calc(70px + 1.25rem) 1.25rem 2rem 1.25rem;
+    flex-grow: 1;
+    box-sizing: border-box;
+  }
+  
+  /* Collapsed Sidebar State */
+  .layout-wrapper.sidebar-collapsed .main-content {
+    margin-left: 0;
+  }
+  
+  @media (max-width: 767.98px) {
+    .main-content {
+      margin-left: 0;
+    }
+    .page-content {
+      padding: calc(70px + 1rem) 0.85rem 1.5rem 0.85rem;
+    }
+  }
+  
+  /* ============================================================
+     ESSENTIAL FLEXBOX & UTILITY CLASSES (NO BOOTSTRAP NEEDED)
+     ============================================================ */
+  .d-flex { display: flex !important; }
+  .d-inline-flex { display: inline-flex !important; }
+  .d-block { display: block !important; }
+  .d-none { display: none !important; }
+  
+  .align-items-center { align-items: center !important; }
+  .align-items-start { align-items: flex-start !important; }
+  .align-items-end { align-items: flex-end !important; }
+  
+  .justify-content-between { justify-content: space-between !important; }
+  .justify-content-center { justify-content: center !important; }
+  
+  .flex-grow-1 { flex-grow: 1 !important; }
+  .flex-shrink-0 { flex-shrink: 0 !important; }
+  .flex-wrap { flex-wrap: wrap !important; }
+  .position-relative { position: relative !important; }
+  
+  .w-100 { width: 100% !important; }
+  .h-100 { height: 100% !important; }
+  
+  .text-center { text-align: center !important; }
+  .text-start { text-align: left !important; }
+  .text-end { text-align: right !important; }
+  
+  .m-0 { margin: 0 !important; }
+  .mb-0 { margin-bottom: 0 !important; }
+  .mb-1 { margin-bottom: 0.25rem !important; }
+  .mb-2 { margin-bottom: 0.5rem !important; }
+  .mb-3 { margin-bottom: 1rem !important; }
+  .mt-0 { margin-top: 0 !important; }
+  .mt-2 { margin-top: 0.5rem !important; }
+  
+  .me-1 { margin-right: 0.25rem !important; }
+  .me-2 { margin-right: 0.5rem !important; }
+  .me-3 { margin-right: 1rem !important; }
+  .ms-1 { margin-left: 0.25rem !important; }
+  .ms-2 { margin-left: 0.5rem !important; }
+  
+  .p-0 { padding: 0 !important; }
+  .p-2 { padding: 0.5rem !important; }
+  .p-3 { padding: 1rem !important; }
+  .py-2 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+  .px-3 { padding-left: 1rem !important; padding-right: 1rem !important; }
+  
+  .gap-1 { gap: 0.25rem !important; }
+  .gap-2 { gap: 0.5rem !important; }
+  .gap-3 { gap: 1rem !important; }
+  
+  .fw-medium { font-weight: 500 !important; }
+  .fw-semibold { font-weight: 600 !important; }
+  .fw-bold { font-weight: 700 !important; }
+  
+  /* Responsive Breakpoints */
+  @media (min-width: 576px) {
+    .d-sm-flex { display: flex !important; }
+    .d-sm-none { display: none !important; }
+  }
+  
+  @media (min-width: 768px) {
+    .d-md-block { display: block !important; }
+    .d-md-none { display: none !important; }
+    .d-md-flex { display: flex !important; }
+  }
+  
+  @media (min-width: 1200px) {
+    .d-xl-block { display: block !important; }
+    .d-xl-none { display: none !important; }
+    .d-xl-flex { display: flex !important; }
+  }
+  
+/* 12-Column Responsive Grid System (Bootstrap-compatible) */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -12px;
+  margin-left: -12px;
+}
+
+.row > * {
+  padding-right: 12px;
+  padding-left: 12px;
+  box-sizing: border-box;
+  /* ❌ REMOVED width: 100% — this was breaking the login layout */
+}
+  
+  .col-12 { flex: 0 0 100%; max-width: 100%; }
+  .col-4 { flex: 0 0 33.3333%; max-width: 33.3333%; }
+  .col-3 { flex: 0 0 25%; max-width: 25%; }
+  
+  @media (min-width: 576px) {
+    .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
+  }
+  
+  @media (min-width: 768px) {
+    .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+  }
+  
+  @media (min-width: 992px) {
+    .col-lg-4 { flex: 0 0 33.3333%; max-width: 33.3333%; }
+  }
+  
+  @media (min-width: 1200px) {
+    .col-xl-3 { flex: 0 0 25%; max-width: 25%; }
+    .col-xl-4 { flex: 0 0 33.3333%; max-width: 33.3333%; }
+    .col-xl-6 { flex: 0 0 50%; max-width: 50%; }
+    .col-xl-8 { flex: 0 0 66.6667%; max-width: 66.6667%; }
+  }

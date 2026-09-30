@@ -1,0 +1,115 @@
+/* src/components/Toast.css */
+.toast-container-custom {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column-reverse; /* Newest on top */
+    gap: 10px;
+    pointer-events: none;
+  }
+  
+  .custom-toast {
+    position: relative;
+    min-width: 320px;
+    max-width: 420px;
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+    font-family: 'Inter', sans-serif;
+    animation: toastFadeIn 0.3s ease-out forwards;
+  }
+  
+  /* SOLID OPAQUE COLORS (NOT TRANSPARENT) */
+  .custom-toast.toast-success {
+    background-color: #2e7d32 !important; /* Solid Green */
+  }
+  
+  .custom-toast.toast-info {
+    background-color: #0288d1 !important; /* Solid Blue */
+  }
+  
+  .custom-toast.toast-warning {
+    background-color: #ed6c02 !important; /* Solid Orange/Yellow */
+  }
+  
+  .custom-toast.toast-error {
+    background-color: #d32f2f !important; /* Solid Red */
+  }
+  
+  .toast-body-custom {
+    display: flex;
+    align-items: flex-start;
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  
+  .toast-icon {
+    font-size: 20px;
+    line-height: 1;
+    margin-top: 1px;
+  }
+  
+  .toast-content {
+    flex: 1;
+  }
+  
+  .toast-title {
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 2px;
+    text-transform: capitalize;
+  }
+  
+  .toast-message {
+    font-size: 12px;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+  
+  .toast-close-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+  }
+  
+  .toast-close-btn:hover {
+    color: #ffffff;
+  }
+  
+  /* PROGRESS BAR */
+  .toast-progress-bar {
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    animation: toastProgress 5s linear forwards;
+  }
+  
+  @keyframes toastProgress {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0%;
+    }
+  }
+  
+  @keyframes toastFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

@@ -1,0 +1,340 @@
+/* src/pages/VerificationAddress.css */
+.va-container {
+    padding: 10px 0;
+    font-family: var(--vz-font-sans-serif, 'Inter', sans-serif);
+  }
+  
+  .va-header-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .va-main-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #212529;
+    margin: 0;
+  }
+  
+  .va-sub-title {
+    font-size: 13px;
+    color: #878a99;
+    margin: 4px 0 0 0;
+  }
+  
+  /* Nav Tabs */
+  .va-tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 2px solid #e9ebec;
+    margin-bottom: 20px;
+  }
+  
+  .va-tab-btn {
+    background: transparent;
+    border: none;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+  }
+  
+  .va-tab-btn.active {
+    color: #4b38b3;
+    border-bottom-color: #4b38b3;
+  }
+  
+  /* Card Wrappers */
+  .va-card {
+    background: #ffffff;
+    border: 1px solid #e9ebec;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .va-card-body {
+    padding: 24px;
+  }
+  
+  /* Forms */
+  .va-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .va-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .va-form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .va-form-group label {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 6px;
+  }
+  
+  .va-form-group input,
+  .va-form-group select,
+  .va-form-group textarea {
+    padding: 9px 12px;
+    font-size: 13px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.2s;
+  }
+  
+  .va-form-group input:focus,
+  .va-form-group select:focus,
+  .va-form-group textarea:focus {
+    border-color: #4b38b3;
+  }
+  
+  .va-btn-primary {
+    background-color: #4b38b3;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .va-btn-primary:hover {
+    background-color: #3f2fa1;
+  }
+  
+  .va-btn-primary:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+  
+  /* Tables */
+  .va-table-responsive {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .va-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  
+  .va-table thead th {
+    background: #f8f9fa;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #878a99;
+    letter-spacing: 0.3px;
+    padding: 11px 14px;
+    border-bottom: 1px solid #f1f3f6;
+    text-align: left;
+    white-space: nowrap;
+  }
+  
+  .va-table tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #f4f5f7;
+    color: #495057;
+    vertical-align: middle;
+  }
+  
+  .va-table tbody tr:hover {
+    background-color: #fafbfc;
+  }
+  
+  /* Badges */
+  .va-badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  
+  .va-badge-assigned {
+    background: rgba(69, 203, 133, 0.14);
+    color: #0ab39c;
+  }
+  
+  .va-badge-unassigned {
+    background: rgba(255, 190, 11, 0.16);
+    color: #d89600;
+  }
+  
+  .va-badge-urgent {
+    background: rgba(240, 101, 72, 0.14);
+    color: #f06548;
+  }
+  
+  .va-badge-high {
+    background: rgba(255, 190, 11, 0.16);
+    color: #d89600;
+  }
+  
+  .va-badge-normal {
+    background: #eef0f5;
+    color: #6c757d;
+  }
+  
+  /* Action Buttons */
+  .va-action-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+  }
+  
+  .va-btn-view {
+    border-color: #299cdb;
+    color: #299cdb;
+    background: transparent;
+  }
+  .va-btn-view:hover {
+    background: #299cdb;
+    color: #ffffff;
+  }
+  
+  .va-btn-edit {
+    border-color: #4b38b3;
+    color: #4b38b3;
+    background: transparent;
+  }
+  .va-btn-edit:hover {
+    background: #4b38b3;
+    color: #ffffff;
+  }
+  
+  .va-btn-del {
+    border-color: #f06548;
+    color: #f06548;
+    background: transparent;
+  }
+  .va-btn-del:hover {
+    background: #f06548;
+    color: #ffffff;
+  }
+  
+  .va-btn-assign {
+    background-color: #4b38b3;
+    color: #ffffff;
+    border: none;
+  }
+  .va-btn-assign:hover {
+    background-color: #3f2fa1;
+  }
+  
+  /* View/Edit Modal */
+  .va-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+  }
+  
+  .va-modal-box {
+    background: #ffffff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 620px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .va-modal-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f1f3f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .va-modal-header h5 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #212529;
+  }
+  
+  .va-modal-close {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #878a99;
+  }
+  
+  .va-modal-body {
+    padding: 20px;
+  }
+  
+  .va-detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f4f5f7;
+    font-size: 13px;
+  }
+  
+  .va-detail-label {
+    font-weight: 600;
+    color: #64748b;
+  }
+  
+  .va-detail-val {
+    font-weight: 600;
+    color: #212529;
+    text-align: right;
+    max-width: 65%;
+  }
+  
+  .va-modal-footer {
+    padding: 14px 20px;
+    border-top: 1px solid #f1f3f6;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    background: #fafbfc;
+  }

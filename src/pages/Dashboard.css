@@ -1,0 +1,490 @@
+/* ============================================================
+   SCOPED VELZON MASTER OPERATIONS DASHBOARD
+   ============================================================ */
+
+   .dashboard-wrapper {
+    padding: 0;
+    background-color: transparent;
+    font-family: var(--vz-font-sans-serif, 'Inter', sans-serif);
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Page Header & Breadcrumb */
+  .dashboard-wrapper .dash-title-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 1.15rem;
+  }
+  
+  .dashboard-wrapper .dash-main-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #212529;
+    margin: 0;
+    letter-spacing: -0.2px;
+  }
+  
+  .dashboard-wrapper .dash-sub-title {
+    color: #878a99;
+    font-size: 13px;
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+  
+  .dashboard-wrapper .dash-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    list-style: none;
+  }
+  
+  .dashboard-wrapper .dash-breadcrumb a {
+    color: #878a99;
+    text-decoration: none;
+  }
+  
+  .dashboard-wrapper .dash-breadcrumb a:hover {
+    color: #4b38b3;
+  }
+  
+  .dashboard-wrapper .dash-breadcrumb li.active {
+    color: #4b38b3;
+    font-weight: 600;
+  }
+  
+  .dashboard-wrapper .dash-breadcrumb li + li::before {
+    content: '/';
+    color: #ced4da;
+    margin-right: 6px;
+  }
+  
+  /* ============================================================
+     KPI CATEGORY FILTER STRIP
+     ============================================================ */
+  .dashboard-wrapper .dash-kpi-filter-strip {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  
+  .dashboard-wrapper .dash-filter-pill-container {
+    display: inline-flex;
+    background: #eef0f5;
+    padding: 3px;
+    border-radius: 6px;
+  }
+  
+  .dashboard-wrapper .dash-kpi-tab {
+    background: transparent;
+    border: none;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 4px;
+    color: #6c757d;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  
+  .dashboard-wrapper .dash-kpi-tab.active {
+    background: #ffffff;
+    color: #4b38b3;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* ============================================================
+     CARD SYSTEM
+     ============================================================ */
+  .dashboard-wrapper .dash-card {
+    background: #ffffff;
+    border: 1px solid #e9ebec;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(56, 65, 74, 0.05);
+    margin-bottom: 1.15rem;
+    overflow: hidden;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .dashboard-wrapper .dash-kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(56, 65, 74, 0.08);
+  }
+  
+  .dashboard-wrapper .dash-card-header {
+    padding: 0.95rem 1.2rem;
+    background: transparent;
+    border-bottom: 1px solid #f1f3f6;
+  }
+  
+  .dashboard-wrapper .dash-card-heading {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #495057;
+    margin: 0;
+  }
+  
+  .dashboard-wrapper .dash-card-subheading {
+    font-size: 11px;
+    color: #878a99;
+    display: block;
+  }
+  
+  /* KPI CARD ELEMENTS */
+  .dashboard-wrapper .dash-kpi-title {
+    font-size: 11.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #878a99;
+  }
+  
+  .dashboard-wrapper .dash-kpi-value {
+    font-size: 21px;
+    font-weight: 700;
+    color: #212529;
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  .dashboard-wrapper .dash-kpi-desc {
+    font-size: 11px;
+    color: #878a99;
+    margin-top: 3px;
+    margin-bottom: 0;
+  }
+  
+  .dashboard-wrapper .dash-kpi-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  
+  /* ============================================================
+     TOGGLE BUTTONS (DAILY/WEEKLY/MONTHLY)
+     ============================================================ */
+  .dashboard-wrapper .dash-btn-toggle-group {
+    display: inline-flex;
+    border: 1px solid #e9ebec;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .dashboard-wrapper .dash-toggle-btn {
+    background: #ffffff;
+    border: none;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+    border-right: 1px solid #e9ebec;
+    transition: all 0.15s ease;
+  }
+  
+  .dashboard-wrapper .dash-toggle-btn:last-child {
+    border-right: none;
+  }
+  
+  .dashboard-wrapper .dash-toggle-btn.active {
+    background-color: #4b38b3;
+    color: #ffffff;
+  }
+  
+  /* ============================================================
+     FULL-WIDTH RESPONSIVE SVG CHART (NO SCROLLBAR)
+     ============================================================ */
+  .dashboard-wrapper .dash-chart-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .dashboard-wrapper .dash-chart-svg {
+    width: 100%;
+    height: 180px;
+    display: block;
+  }
+  
+  .dashboard-wrapper .dash-chart-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #878a99;
+    margin-top: 8px;
+  }
+  
+  .dashboard-wrapper .dash-chart-kpi-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 1px solid #f1f3f6;
+    padding-top: 14px;
+    margin-top: 14px;
+  }
+  
+  .dashboard-wrapper .dash-kpi-footer-item {
+    text-align: center;
+    flex: 1;
+  }
+  
+  .dashboard-wrapper .dash-kpi-footer-item.border-left-right {
+    border-left: 1px solid #f1f3f6;
+    border-right: 1px solid #f1f3f6;
+  }
+  
+  .dashboard-wrapper .dash-footer-label {
+    font-size: 11px;
+    color: #878a99;
+    display: block;
+  }
+  
+  .dashboard-wrapper .dash-footer-val {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #212529;
+    margin: 3px 0 0 0;
+  }
+  
+  /* ============================================================
+     TABLE STYLING (NO SCROLLBARS)
+     ============================================================ */
+  .dashboard-wrapper .dash-table-responsive {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .dashboard-wrapper .dash-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    table-layout: auto;
+  }
+  
+  .dashboard-wrapper .dash-table thead th {
+    background: #f8f9fa;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #878a99;
+    letter-spacing: 0.3px;
+    padding: 8px 10px;
+    border-bottom: 1px solid #f1f3f6;
+    text-align: left;
+    white-space: nowrap;
+  }
+  
+  .dashboard-wrapper .dash-table tbody td {
+    padding: 9px 10px;
+    border-bottom: 1px solid #f4f5f7;
+    color: #495057;
+    vertical-align: middle;
+  }
+  
+  .dashboard-wrapper .dash-table tbody tr:hover {
+    background-color: #fafbfc;
+  }
+  
+  .dashboard-wrapper .dash-table-btn {
+    background: transparent;
+    border: 1px solid #4b38b3;
+    color: #4b38b3;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+  
+  .dashboard-wrapper .dash-table-btn:hover {
+    background: #4b38b3;
+    color: #ffffff;
+  }
+  
+  .dashboard-wrapper .dash-table-btn-danger {
+    border-color: #f06548;
+    color: #f06548;
+  }
+  
+  .dashboard-wrapper .dash-table-btn-danger:hover {
+    background: #f06548;
+    color: #ffffff;
+  }
+  
+  .dashboard-wrapper .dash-btn-mini-primary {
+    background-color: #4b38b3;
+    color: #ffffff;
+    border: none;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .dashboard-wrapper .dash-btn-mini-primary:hover {
+    background-color: #3f2fa1;
+  }
+  
+  .dashboard-wrapper .dash-link-action {
+    font-size: 11.5px;
+    color: #4b38b3;
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .dashboard-wrapper .dash-link-btn {
+    background: transparent;
+    border: 1px solid #e9ebec;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: #6c757d;
+    cursor: pointer;
+  }
+  
+  .dashboard-wrapper .dash-mini-progress-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .dashboard-wrapper .dash-mini-progress {
+    flex-grow: 1;
+    height: 5px;
+    background: #eef0f5;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  
+  .dashboard-wrapper .dash-mini-bar {
+    height: 100%;
+    background: #45cb85;
+  }
+  
+  .dashboard-wrapper .dash-mini-rate {
+    font-size: 10.5px;
+    color: #878a99;
+  }
+  
+  .dashboard-wrapper .dash-avatar-badge {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #eef0f7;
+    color: #4b38b3;
+    font-size: 10.5px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* ============================================================
+     FIELD VISITS TIMELINE
+     ============================================================ */
+  .dashboard-wrapper .dash-visit-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .dashboard-wrapper .dash-visit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .dashboard-wrapper .dash-visit-time {
+    background: rgba(75, 56, 179, 0.08);
+    color: #4b38b3;
+    font-weight: 700;
+    font-size: 10.5px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    min-width: 64px;
+    text-align: center;
+  }
+  
+  .dashboard-wrapper .dash-visit-details {
+    flex-grow: 1;
+    border-bottom: 1px solid #f1f3f6;
+    padding-bottom: 6px;
+  }
+  
+  .dashboard-wrapper .dash-visit-applicant {
+    font-size: 12px;
+    font-weight: 600;
+    color: #212529;
+  }
+  
+  .dashboard-wrapper .dash-visit-loc {
+    font-size: 11px;
+    color: #6c757d;
+    margin: 2px 0 2px 0;
+  }
+  
+  .dashboard-wrapper .dash-visit-officer {
+    font-size: 10.5px;
+    color: #878a99;
+  }
+  
+  /* ============================================================
+     BADGE SYSTEM
+     ============================================================ */
+  .dashboard-wrapper .dash-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 10px;
+    padding: 2px 5px;
+    font-weight: 600;
+    border-radius: 4px;
+    line-height: 1.2;
+  }
+  
+  .dashboard-wrapper .dash-badge-primary {
+    background-color: rgba(75, 56, 179, 0.12);
+    color: #4b38b3;
+  }
+  
+  .dashboard-wrapper .dash-badge-success {
+    background-color: rgba(69, 203, 133, 0.14);
+    color: #0ab39c;
+  }
+  
+  .dashboard-wrapper .dash-badge-info {
+    background-color: rgba(41, 156, 219, 0.14);
+    color: #299cdb;
+  }
+  
+  .dashboard-wrapper .dash-badge-warning {
+    background-color: rgba(255, 190, 11, 0.16);
+    color: #d89600;
+  }
+  
+  .dashboard-wrapper .dash-badge-danger {
+    background-color: rgba(240, 101, 72, 0.14);
+    color: #f06548;
+  }
+  
+  .dashboard-wrapper .dash-badge-neutral {
+    background-color: #eef0f5;
+    color: #6c757d;
+  }
