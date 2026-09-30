@@ -67,6 +67,8 @@ const ManageStaff = () => {
         role: editingStaff.role || 'staff',
         password: editingStaff.password,
         deviceId: editingStaff.deviceId || null,
+        fcmToken: editingStaff.fcmToken || null,
+        oneSignalPlayerId: editingStaff.oneSignalPlayerId || null,
       };
 
       await update(ref(database, `staff/${editingStaff.uid}`), updates);
@@ -283,6 +285,17 @@ const ManageStaff = () => {
                     value={editingStaff.deviceId || ''}
                     onChange={handleEditChange}
                     placeholder="Enter Device ID or leave blank"
+                  />
+                </div>
+
+                <div className="form-group mb-3">
+                  <label>OneSignal Player ID (from Flutter app)</label>
+                  <input
+                    type="text"
+                    name="oneSignalPlayerId"
+                    value={editingStaff.oneSignalPlayerId || ''}
+                    onChange={handleEditChange}
+                    placeholder="Optional. Login must set OneSignal external_id = staff uid"
                   />
                 </div>
 

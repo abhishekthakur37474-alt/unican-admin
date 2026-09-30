@@ -4,6 +4,7 @@ import { ref, onValue, push, set, update, remove } from 'firebase/database';
 import { database } from '../firebase';
 import { useToast } from '../components/Toast';
 import ConfirmModal from '../components/ConfirmModal';
+import { notifyStaffOnAssignment } from '../utils/notifyStaff';
 import './VerificationAddress.css';
 
 const VerificationAddress = () => {
@@ -167,7 +168,6 @@ const VerificationAddress = () => {
     try {
       const assignedAt = new Date().toISOString();
 
-      // a. Update Address Status in Firebase
       await update(ref(database, `verification_addresses/${addressItem.id}`), {
         status: 'Assigned',
         assignedToStaffId: assignedStaff.uid,
@@ -176,24 +176,18 @@ const VerificationAddress = () => {
         assignedAt: assignedAt,
       });
 
-      // b. Send Notification directly to this staff member's node
-      const notifRef = push(ref(database, `staff_notifications/${assignedStaff.uid}`));
-      await set(notifRef, {
-        id: notifRef.key,
-        caseId: addressItem.caseId,
-        applicantName: addressItem.applicantName,
-        phone: addressItem.phone,
-        address: `${addressItem.addressLine}, ${addressItem.landmark ? addressItem.landmark + ', ' : ''}${addressItem.city}, ${addressItem.state} - ${addressItem.pincode}`,
-        clientName: addressItem.clientName,
-        verificationType: addressItem.verificationType,
-        priority: addressItem.priority,
-        timestamp: assignedAt,
-        read: false,
-        message: `New Verification Assigned: Case #${addressItem.caseId} (${addressItem.applicantName}) at ${addressItem.city}.`,
+      const { deviceSent, reason } = await notifyStaffOnAssignment({
+        staff: assignedStaff,
+        addressItem,
+        assignedAt,
       });
 
       toast.success(
-        `Case ${addressItem.caseId} assigned to ${assignedStaff.name} & notification sent!`,
+        deviceSent
+          ? `Case ${addressItem.caseId} assigned to ${assignedStaff.name}. In-app + device push sent.`
+          : reason === 'no_subscribed_device'
+            ? `Case ${addressItem.caseId} assigned to ${assignedStaff.name}. In-app sent. Device push skipped (staff not subscribed on OneSignal).`
+            : `Case ${addressItem.caseId} assigned to ${assignedStaff.name}. In-app sent. Device push failed: ${reason}`,
         'Assigned Successfully'
       );
 

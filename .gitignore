@@ -11,6 +11,11 @@ node_modules
 dist
 dist-ssr
 *.local
+server/service-account.json
+server/onesignal.json
+server/onesignal-key.txt
+*firebase-adminsdk*
+.monkeycode-tmp-files/
 
 # Editor directories and files
 .vscode/*

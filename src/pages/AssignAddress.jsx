@@ -1,8 +1,9 @@
 // src/pages/AssignAddress.jsx
 import React, { useState, useEffect } from 'react';
-import { ref, onValue, update, push, set } from 'firebase/database';
+import { ref, onValue, update } from 'firebase/database';
 import { database } from '../firebase';
 import { useToast } from '../components/Toast';
+import { notifyStaffOnAssignment, getStaffPlayerId } from '../utils/notifyStaff';
 import './VerificationAddress.css';
 
 const AssignAddress = () => {
@@ -62,7 +63,6 @@ const AssignAddress = () => {
     try {
       const assignedAt = new Date().toISOString();
 
-      // a. Update Address Status
       await update(ref(database, `verification_addresses/${addressItem.id}`), {
         status: 'Assigned',
         assignedToStaffId: assignedStaff.uid,
@@ -71,24 +71,18 @@ const AssignAddress = () => {
         assignedAt: assignedAt,
       });
 
-      // b. Send notification to staff member's node
-      const notifRef = push(ref(database, `staff_notifications/${assignedStaff.uid}`));
-      await set(notifRef, {
-        id: notifRef.key,
-        caseId: addressItem.caseId,
-        applicantName: addressItem.applicantName,
-        phone: addressItem.phone,
-        address: `${addressItem.addressLine}, ${addressItem.landmark ? addressItem.landmark + ', ' : ''}${addressItem.city}, ${addressItem.state} - ${addressItem.pincode}`,
-        clientName: addressItem.clientName,
-        verificationType: addressItem.verificationType,
-        priority: addressItem.priority,
-        timestamp: assignedAt,
-        read: false,
-        message: `New Verification Assigned: Case #${addressItem.caseId} (${addressItem.applicantName}) at ${addressItem.city}.`,
+      const { deviceSent, reason } = await notifyStaffOnAssignment({
+        staff: assignedStaff,
+        addressItem,
+        assignedAt,
       });
 
       toast.success(
-        `Case ${addressItem.caseId} assigned to ${assignedStaff.name} & notification sent!`,
+        deviceSent
+          ? `Case ${addressItem.caseId} assigned to ${assignedStaff.name}. In-app + device push sent.`
+          : reason === 'no_subscribed_device'
+            ? `Case ${addressItem.caseId} assigned to ${assignedStaff.name}. In-app sent. Device push skipped (staff not subscribed on OneSignal).`
+            : `Case ${addressItem.caseId} assigned to ${assignedStaff.name}. In-app sent. Device push failed: ${reason}`,
         'Assigned Successfully'
       );
 
@@ -214,8 +208,8 @@ const AssignAddress = () => {
             </div>
             <div className="va-modal-body">
               <p className="text-muted" style={{ fontSize: '13px' }}>
-                Select a field officer below. An in-app notification with case particulars
-                will be sent to their profile immediately.
+                Select a field officer. In-app notification is sent immediately. Device
+                push goes via OneSignal using staff uid as external_id.
               </p>
               <div className="va-form-group mb-3">
                 <label>Select Staff Member</label>
@@ -231,7 +225,8 @@ const AssignAddress = () => {
                   <option value="">-- Choose Field Officer --</option>
                   {staffList.map((st) => (
                     <option key={st.uid} value={st.uid}>
-                      {st.name} ({st.email}) {st.deviceId ? `• [${st.deviceId}]` : ''}
+                      {st.name} ({st.email})
+                      {getStaffPlayerId(st) ? ' • OneSignal player' : ''}
                     </option>
                   ))}
                 </select>

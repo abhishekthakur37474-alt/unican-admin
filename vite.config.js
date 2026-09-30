@@ -1,8 +1,11 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
+import { onesignalPlugin } from './server/onesignal-plugin.js'
 
 export default defineConfig({
-  plugins: [react()],
-  base: '/', // Keep as '/' if deployed to domain root
-  // If deployed to a subfolder like /unican/, use '/unican/'
+  plugins: [react(), onesignalPlugin()],
+  base: '/',
+  server: {
+    allowedHosts: ['.monkeycode-ai.live'],
+  },
 })
