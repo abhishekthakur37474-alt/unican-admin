@@ -9,6 +9,12 @@ const Sidebar = ({ isOpen, onClose }) => {
   const [isStaffDropdownOpen, setIsStaffDropdownOpen] = useState(false);
   const [isAddressDropdownOpen, setIsAddressDropdownOpen] = useState(false);
 
+  const handleNavClick = () => {
+    if (typeof window !== 'undefined' && window.innerWidth < 992 && onClose) {
+      onClose();
+    }
+  };
+
   return (
     <>
       <div
@@ -43,6 +49,7 @@ const Sidebar = ({ isOpen, onClose }) => {
               <li className="nav-item">
                 <Link
                   to="/dashboard"
+                  onClick={handleNavClick}
                   className={`nav-link menu-link ${
                     location.pathname === '/dashboard' || location.pathname === '/'
                       ? 'active'
@@ -87,6 +94,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                       <li className="nav-item" style={{ width: '100%' }}>
                         <Link
                           to="/address/add"
+                          onClick={handleNavClick}
                           className={`nav-link ${
                             location.pathname === '/address/add' ? 'active' : ''
                           }`}
@@ -107,6 +115,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                       <li className="nav-item" style={{ width: '100%' }}>
                         <Link
                           to="/address/manage"
+                          onClick={handleNavClick}
                           className={`nav-link ${
                             location.pathname === '/address/manage' ? 'active' : ''
                           }`}
@@ -127,6 +136,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                       <li className="nav-item" style={{ width: '100%' }}>
                         <Link
                           to="/address/assign"
+                          onClick={handleNavClick}
                           className={`nav-link ${
                             location.pathname === '/address/assign' ? 'active' : ''
                           }`}
@@ -181,6 +191,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                       <li className="nav-item" style={{ width: '100%' }}>
                         <Link
                           to="/staff/create"
+                          onClick={handleNavClick}
                           className={`nav-link ${
                             location.pathname === '/staff/create' ? 'active' : ''
                           }`}
@@ -201,6 +212,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                       <li className="nav-item" style={{ width: '100%' }}>
                         <Link
                           to="/staff/manage"
+                          onClick={handleNavClick}
                           className={`nav-link ${
                             location.pathname === '/staff/manage' ? 'active' : ''
                           }`}

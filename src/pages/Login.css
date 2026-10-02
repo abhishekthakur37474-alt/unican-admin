@@ -24,6 +24,7 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .account-pages *,
@@ -327,4 +328,53 @@
   font-size: 80% !important;
   line-height: 1.2 !important;
   color: #f46a6a !important;
+}
+
+@media (max-width: 767.98px) {
+  .account-pages {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .account-pages .my-5 {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .account-pages .pt-sm-5 {
+    padding-top: 0 !important;
+  }
+
+  .account-pages .col-5,
+  .account-pages .col-7 {
+    width: 100%;
+  }
+
+  .account-pages .bg-primary-subtle > .row {
+    align-items: center;
+  }
+
+  .account-pages .bg-primary-subtle img {
+    max-height: 110px;
+    margin: 0 auto 8px;
+  }
+
+  .account-pages .p-4 {
+    padding: 1.25rem !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .account-pages .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .account-pages .card {
+    margin-bottom: 12px;
+  }
+
+  .account-pages .card-body {
+    padding: 1rem;
+  }
 }

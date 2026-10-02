@@ -330,11 +330,91 @@
     max-width: 65%;
   }
   
-  .va-modal-footer {
-    padding: 14px 20px;
-    border-top: 1px solid #f1f3f6;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    background: #fafbfc;
-  }
+   .va-modal-footer {
+     padding: 14px 20px;
+     border-top: 1px solid #f1f3f6;
+     display: flex;
+     justify-content: flex-end;
+     gap: 10px;
+     background: #fafbfc;
+   }
+
+   .va-form-group input,
+   .va-form-group select,
+   .va-form-group textarea {
+     width: 100%;
+     box-sizing: border-box;
+   }
+
+   @media (max-width: 767.98px) {
+     .va-tabs {
+       overflow-x: auto;
+       -webkit-overflow-scrolling: touch;
+       white-space: nowrap;
+     }
+
+     .va-tab-btn {
+       flex-shrink: 0;
+     }
+
+     .va-card-body {
+       padding: 16px;
+     }
+
+     .va-grid-2,
+     .va-grid-3 {
+       grid-template-columns: 1fr;
+     }
+
+     .va-table {
+       min-width: 820px;
+     }
+
+     .va-modal-backdrop {
+       padding: 12px;
+       align-items: flex-end;
+     }
+
+     .va-modal-box {
+       width: 100%;
+       max-width: 100%;
+       max-height: 92vh;
+       border-radius: 12px 12px 0 0;
+     }
+
+     .va-detail-row {
+       flex-direction: column;
+       align-items: flex-start;
+       gap: 4px;
+     }
+
+     .va-detail-val {
+       text-align: left;
+       max-width: 100%;
+       word-break: break-word;
+     }
+
+     .va-modal-footer {
+       flex-wrap: wrap;
+     }
+
+     .va-modal-footer .va-action-btn,
+     .va-modal-footer .va-btn-primary {
+       flex: 1 1 auto;
+     }
+   }
+
+   @media (max-width: 575.98px) {
+     .va-main-title {
+       font-size: 16px;
+     }
+
+     .va-btn-primary {
+       width: 100%;
+       justify-content: center;
+     }
+
+     .va-table tbody td .va-action-btn {
+       margin-bottom: 4px;
+     }
+   }

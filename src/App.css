@@ -36,17 +36,27 @@
   /* ============================================================
      CORE LAYOUT ARCHITECTURE
      ============================================================ */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   .layout-wrapper {
     display: flex;
     min-height: 100vh;
     width: 100%;
+    max-width: 100%;
     position: relative;
     background-color: var(--vz-body-bg);
+    overflow-x: hidden;
   }
   
   .main-content {
     flex-grow: 1;
     min-height: 100vh;
+    min-width: 0;
+    width: 100%;
     margin-left: var(--vz-vertical-menu-width);
     transition: margin-left 0.22s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
@@ -59,19 +69,53 @@
     padding: calc(70px + 1.25rem) 1.25rem 2rem 1.25rem;
     flex-grow: 1;
     box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
   }
   
   /* Collapsed Sidebar State */
   .layout-wrapper.sidebar-collapsed .main-content {
     margin-left: 0;
   }
+
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    max-width: 100%;
+  }
   
-  @media (max-width: 767.98px) {
+  @media (max-width: 991.98px) {
     .main-content {
       margin-left: 0;
     }
+    .layout-wrapper.sidebar-collapsed .main-content {
+      margin-left: 0;
+    }
     .page-content {
-      padding: calc(70px + 1rem) 0.85rem 1.5rem 0.85rem;
+      padding: calc(70px + 1rem) 1rem 1.5rem 1rem;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    .page-content {
+      padding: calc(70px + 0.75rem) 0.75rem 1.25rem 0.75rem;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    body.sidebar-drawer-open {
+      overflow: hidden;
     }
   }
   
@@ -141,6 +185,12 @@
     .d-md-none { display: none !important; }
     .d-md-flex { display: flex !important; }
   }
+
+  @media (min-width: 992px) {
+    .d-lg-block { display: block !important; }
+    .d-lg-none { display: none !important; }
+    .d-lg-flex { display: flex !important; }
+  }
   
   @media (min-width: 1200px) {
     .d-xl-block { display: block !important; }
@@ -164,19 +214,26 @@
 }
   
   .col-12 { flex: 0 0 100%; max-width: 100%; }
+  .col-6 { flex: 0 0 50%; max-width: 50%; }
   .col-4 { flex: 0 0 33.3333%; max-width: 33.3333%; }
   .col-3 { flex: 0 0 25%; max-width: 25%; }
+  .col-sm-12 { flex: 0 0 100%; max-width: 100%; }
   
   @media (min-width: 576px) {
     .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
+    .col-sm-12 { flex: 0 0 100%; max-width: 100%; }
   }
   
   @media (min-width: 768px) {
+    .col-md-4 { flex: 0 0 33.3333%; max-width: 33.3333%; }
     .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+    .col-md-8 { flex: 0 0 66.6667%; max-width: 66.6667%; }
+    .col-md-12 { flex: 0 0 100%; max-width: 100%; }
   }
   
   @media (min-width: 992px) {
     .col-lg-4 { flex: 0 0 33.3333%; max-width: 33.3333%; }
+    .col-lg-6 { flex: 0 0 50%; max-width: 50%; }
   }
   
   @media (min-width: 1200px) {

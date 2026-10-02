@@ -232,12 +232,53 @@
     cursor: pointer;
   }
   
-  .btn-save {
-    background: #4b38b3;
-    color: #ffffff;
-    border: none;
-    padding: 7px 14px;
-    border-radius: 4px;
-    font-size: 12px;
-    cursor: pointer;
-  }
+   .btn-save {
+     background: #4b38b3;
+     color: #ffffff;
+     border: none;
+     padding: 7px 14px;
+     border-radius: 4px;
+     font-size: 12px;
+     cursor: pointer;
+   }
+
+   .modal-body-custom input {
+     box-sizing: border-box;
+   }
+
+   @media (max-width: 767.98px) {
+     .staff-table {
+       min-width: 760px;
+     }
+
+     .modal-overlay {
+       padding: 12px;
+       align-items: flex-end;
+     }
+
+     .modal-dialog-custom {
+       max-width: 100%;
+       max-height: 92vh;
+       overflow-y: auto;
+       border-radius: 12px 12px 0 0;
+     }
+
+     .modal-footer-custom {
+       flex-wrap: wrap;
+     }
+
+     .modal-footer-custom .btn-cancel,
+     .modal-footer-custom .btn-save {
+       flex: 1 1 auto;
+     }
+   }
+
+   @media (max-width: 575.98px) {
+     .page-heading {
+       font-size: 16px;
+     }
+
+     .staff-header-row {
+       margin-bottom: 14px;
+     }
+   }

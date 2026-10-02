@@ -84,7 +84,7 @@ const Dashboard = () => {
 
       {/* Staff KPI Summary Cards */}
       <div className="row">
-        <div className="col-md-4 col-sm-6">
+        <div className="col-12 col-sm-6 col-md-4">
           <motion.div className="dash-card dash-kpi-card" variants={itemVariants}>
             <div className="dash-card-body p-3">
               <div className="d-flex align-items-center justify-content-between mb-2">
@@ -104,7 +104,7 @@ const Dashboard = () => {
           </motion.div>
         </div>
 
-        <div className="col-md-4 col-sm-6">
+        <div className="col-12 col-sm-6 col-md-4">
           <motion.div className="dash-card dash-kpi-card" variants={itemVariants}>
             <div className="dash-card-body p-3">
               <div className="d-flex align-items-center justify-content-between mb-2">
@@ -124,7 +124,7 @@ const Dashboard = () => {
           </motion.div>
         </div>
 
-        <div className="col-md-4 col-sm-12">
+        <div className="col-12 col-md-4">
           <motion.div className="dash-card dash-kpi-card" variants={itemVariants}>
             <div className="dash-card-body p-3">
               <div className="d-flex align-items-center justify-content-between mb-2">

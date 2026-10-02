@@ -113,3 +113,18 @@
       transform: translateY(0);
     }
   }
+
+  @media (max-width: 575.98px) {
+    .toast-container-custom {
+      top: auto;
+      bottom: 16px;
+      left: 12px;
+      right: 12px;
+    }
+
+    .custom-toast {
+      min-width: 0;
+      max-width: 100%;
+      width: 100%;
+    }
+  }

@@ -2,7 +2,21 @@
 header('Content-Type: application/json; charset=utf-8');
 
 $appId = 'f5e99edf-0039-4e79-890f-d34d6753db0d';
-$key   = 'os_v2_app_6xuz5xyahfhhtcip2ngwou63buyllqivfegee7vitp453qtqgm4klg4ndbagmnvqo5bzsxsj4poqv6yl7y7nsrqakcejw6g6wvl47xq'; // purani mat daal, wo leak ho chuki
+
+// Key lives OUTSIDE the web root, one folder above the site root:
+//   <parent of DOCUMENT_ROOT>/onesignal-key.txt   (file contains only the key)
+// So deploying/overwriting dist/ never touches it, and nobody can download it.
+$keyFile = dirname($_SERVER['DOCUMENT_ROOT']) . '/onesignal-key.txt';
+$key = is_readable($keyFile) ? trim(file_get_contents($keyFile)) : '';
+
+if ($key === '') {
+  http_response_code(500);
+  echo json_encode([
+    'ok' => false,
+    'error' => 'OneSignal key file missing or empty: ' . $keyFile,
+  ]);
+  exit;
+}
 
 $in = json_decode(file_get_contents('php://input'), true) ?: [];
 $payload = [
@@ -46,6 +60,7 @@ if ($code >= 300 || !empty($json['errors'])) {
   echo json_encode(['ok' => false, 'error' => $err]);
   exit;
 }
+
 $id = $json['id'] ?? '';
 $recipients = $id !== '' ? ($json['recipients'] ?? 1) : 0;
 

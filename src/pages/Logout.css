@@ -184,8 +184,13 @@
   
   /* ---------- Responsive ---------- */
   @media (max-width: 575.98px) {
+    .logout-wrapper {
+      padding: 1rem;
+      align-items: flex-start;
+    }
+
     .logout-card {
-      padding: 2rem 1.25rem;
+      padding: 1.5rem 1rem;
     }
   
     .logout-actions {
@@ -194,5 +199,9 @@
   
     .logout-actions .btn {
       width: 100%;
+    }
+
+    .logout-user {
+      flex-wrap: wrap;
     }
   }

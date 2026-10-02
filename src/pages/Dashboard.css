@@ -260,10 +260,11 @@
   /* ============================================================
      TABLE STYLING (NO SCROLLBARS)
      ============================================================ */
-  .dashboard-wrapper .dash-table-responsive {
-    width: 100%;
-    overflow: hidden;
-  }
+   .dashboard-wrapper .dash-table-responsive {
+     width: 100%;
+     overflow-x: auto;
+     -webkit-overflow-scrolling: touch;
+   }
   
   .dashboard-wrapper .dash-table {
     width: 100%;
@@ -484,7 +485,76 @@
     color: #f06548;
   }
   
-  .dashboard-wrapper .dash-badge-neutral {
-    background-color: #eef0f5;
-    color: #6c757d;
-  }
+   .dashboard-wrapper .dash-badge-neutral {
+     background-color: #eef0f5;
+     color: #6c757d;
+   }
+
+   .dashboard-wrapper .row > [class*="col-"] {
+     width: 100%;
+     min-width: 0;
+   }
+
+   .dashboard-wrapper .dash-card-header {
+     flex-wrap: wrap;
+     gap: 10px;
+   }
+
+   @media (max-width: 767.98px) {
+     .dashboard-wrapper .dash-title-box {
+       flex-direction: column;
+       align-items: flex-start;
+       gap: 8px;
+     }
+
+     .dashboard-wrapper .dash-breadcrumb {
+       flex-wrap: wrap;
+     }
+
+     .dashboard-wrapper .dash-main-title {
+       font-size: 16px;
+     }
+
+     .dashboard-wrapper .dash-kpi-value {
+       font-size: 18px;
+     }
+
+     .dashboard-wrapper .dash-card-header {
+       padding: 0.85rem 1rem;
+     }
+
+     .dashboard-wrapper .dash-table-responsive {
+       overflow-x: auto;
+       -webkit-overflow-scrolling: touch;
+     }
+
+     .dashboard-wrapper .dash-table {
+       min-width: 720px;
+     }
+
+     .dashboard-wrapper .dash-chart-kpi-footer {
+       flex-wrap: wrap;
+       gap: 10px;
+     }
+
+     .dashboard-wrapper .dash-kpi-footer-item.border-left-right {
+       border-left: none;
+       border-right: none;
+     }
+   }
+
+   @media (max-width: 575.98px) {
+     .dashboard-wrapper .dash-title-box {
+       margin-bottom: 0.85rem;
+     }
+
+     .dashboard-wrapper .dash-filter-pill-container {
+       width: 100%;
+       overflow-x: auto;
+     }
+
+     .dashboard-wrapper .dash-kpi-card .d-flex.align-items-center.justify-content-between.mt-3 {
+       flex-wrap: wrap;
+       gap: 10px;
+     }
+   }

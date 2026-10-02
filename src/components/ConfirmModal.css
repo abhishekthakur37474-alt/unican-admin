@@ -132,3 +132,26 @@
     from { transform: scale(0.95); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
   }
+
+  @media (max-width: 575.98px) {
+    .app-confirm-backdrop {
+      padding: 12px;
+      align-items: flex-end;
+    }
+
+    .app-confirm-box {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px 12px 0 0;
+      padding: 20px 16px;
+    }
+
+    .app-confirm-actions {
+      flex-direction: column;
+    }
+
+    .btn-confirm-cancel,
+    .btn-confirm-proceed {
+      width: 100%;
+    }
+  }

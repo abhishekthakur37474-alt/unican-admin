@@ -95,7 +95,29 @@
     background-color: #364574;
   }
   
-  .btn-submit:disabled {
-    opacity: 0.65;
-    cursor: not-allowed;
-  }
+   .btn-submit:disabled {
+     opacity: 0.65;
+     cursor: not-allowed;
+   }
+
+   .staff-form input {
+     width: 100%;
+     box-sizing: border-box;
+   }
+
+   @media (max-width: 767.98px) {
+     .staff-page-container {
+       padding: 16px 0;
+       min-height: auto;
+     }
+
+     .staff-card {
+       padding: 20px 16px;
+     }
+   }
+
+   @media (max-width: 575.98px) {
+     .staff-card-header .card-title {
+       font-size: 1.1rem;
+     }
+   }
